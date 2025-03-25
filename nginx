@@ -1,9 +1,9 @@
 server {
     listen 80;
-    server_name _;
+    server_name $LT_DOMAIN;
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/home/libretranslate/LibreTranslate/libretranslate.sock;
+        proxy_pass http://unix:$LT_DIR/LibreTranslate/libretranslate.sock;
     }
 }

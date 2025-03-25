@@ -29,9 +29,12 @@ git clone https://github.com/argosopentech/LibreTranslate-init.git ~/LibreTransl
 # When you run LibreTranslate for the first time it will download all of the language model packages
 ~/LibreTranslate/env/bin/libretranslate --host <your hostname or IP address>
 
-# Set server_name to your domain name in ~/LibreTranslate-init/nginx
+# Add settings for LibreTranslate-init and LibreTranslate (latter is optional)
+cp ~/LibreTranslate-init/.env.example ~/LibreTranslate-init/.env
+# LT_DOMAIN is a domain name or an IP address, LT_DIR is the home directory of LT_USER and LT_USER is the user that LibreTranslate runs under
+editor ~/LibreTranslate-init/.env
 
-# Run LibreTranslate WSGI with nginx and systemd
+# Run LibreTranslate WSGI with nginx and systemd, this script also applies .env configuration to nginx
 ~/LibreTranslate-init/run.sh
 
 # Check LibreTranslate status
